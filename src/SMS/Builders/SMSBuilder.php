@@ -2,13 +2,19 @@
 
 namespace Teli\SMS\Builders;
 
-use Teli\Base\Builders\BaseBuilder;
+use Teli\Shared\HttpClient;
 use Teli\SMS\Contracts\SMSBuilderInterface;
 use Teli\sms\models\SendSMSDto;
 
-class SMSBuilder extends BaseBuilder implements SMSBuilderInterface {
-    public function send(SendSMSDto $payload)
+class SMSBuilder implements SMSBuilderInterface {
+    private $httpClient;
+
+    public function __construct(HttpClient $httpClient) {
+        $this->httpClient = $httpClient;
+    }
+
+    public function send($payload)
     {
-        return $this->httpClient->send('GET', '');
+        return $this->httpClient->make('GET', 'sms/send', $payload);
     }
 }
