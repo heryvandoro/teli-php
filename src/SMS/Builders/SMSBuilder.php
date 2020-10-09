@@ -4,7 +4,6 @@ namespace Teli\SMS\Builders;
 
 use Teli\Shared\HttpClient;
 use Teli\SMS\Contracts\SMSBuilderInterface;
-use Teli\sms\models\SendSMSDto;
 
 class SMSBuilder implements SMSBuilderInterface {
     private $httpClient;
@@ -15,6 +14,11 @@ class SMSBuilder implements SMSBuilderInterface {
 
     public function send($payload)
     {
-        return $this->httpClient->make('GET', 'sms/send', $payload);
+        return $this->httpClient->make('GET', 'https://api.teleapi.net/sms/send', $payload);
+    }
+
+    public function getRecords($start_date, $end_date, $filter = [])
+    {
+        return $this->httpClient->make('GET', 'https://api.teleapi.net/sms/records', $filter);
     }
 }
