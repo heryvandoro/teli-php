@@ -1,6 +1,6 @@
 <?php
 
-namespace Teli\SIP\Contract;
+namespace Teli\SIP\Contracts;
 
 interface SIPBuilderInterface{
     /**

@@ -19,7 +19,7 @@ interface FaxBuilderInterface {
 
     /**
      * Sending a fax
-     * @param $did_id Can be obtained from the "List Detail on Specific #" at the URL
+     * @param $did_id {Number} Can be obtained from the "List Detail on Specific #" at the URL
      * @param $payload {Object} Fax information
      * @return mixed
      */

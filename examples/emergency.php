@@ -73,7 +73,6 @@ function lookupAlertGroup(){
     $response= $teli->emergency->lookupAlertGroup();
     var_dump($response);
 }
-//lookupAlertGroup();
 
 function removeAlertGroup(){
     global $teli;

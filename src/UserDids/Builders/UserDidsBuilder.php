@@ -1,59 +1,15 @@
 <?php
 
-namespace Teli\Phone\Builders;
+namespace Teli\UserDids\Builders;
 
-use Teli\Phone\Contract\PhoneBuilderInterface;
+use Teli\UserDids\Contracts\UserDidsBuilderInterface;
 use Teli\Shared\HttpClient;
 
-class PhoneBuilder implements PhoneBuilderInterface {
+class UserDidsBuilder implements UserDidsBuilderInterface{
     private $httpClient;
     public function __construct(HttpClient $httpClient)
     {
         $this->httpClient = $httpClient;
-    }
-
-    public function states()
-    {
-        return $this->httpClient->make('GET', 'https://apiv1.teleapi.net/dids/states');
-    }
-
-    public function rateCenters($state)
-    {
-        return $this->httpClient->make('GET', 'https://apiv1.teleapi.net/dids/ratecenters', [
-            'state' => $state
-        ]);
-    }
-
-    public function localNumbers($payload)
-    {
-        return $this->httpClient->make('GET', 'https://apiv1.teleapi.net/dids/list', $payload);
-    }
-
-    public function tollFreeNumbers()
-    {
-        return $this->httpClient->make('GET', 'https://apiv1.teleapi.net/dids/list', [
-            'type' => 'tollfree'
-        ]);
-    }
-
-    public function orderSingleNumber($payload)
-    {
-        return $this->httpClient->make('POST', 'https://apiv1.teleapi.net/dids/order', $payload);
-    }
-
-    public function searchVanityTollfreeNumbers($search)
-    {
-        return $this->httpClient->make('POST', 'https://apiv1.teleapi.net/dids/tollfree/vanity', [
-            'search' => $search
-        ]);
-    }
-
-    public function orderVanityTollfreeNumber($did_number, $vanity_tf = null)
-    {
-        return $this->httpClient->make('POST', 'https://apiv1.teleapi.net/dids/cart', [
-            'did_number' => $did_number,
-            'vanity_tf' => $vanity_tf ? 'yes' : 'no'
-        ]);
     }
 
     public function listAll($number_type=null)
@@ -66,9 +22,9 @@ class PhoneBuilder implements PhoneBuilderInterface {
     public function listSimple($number_type=null, $limit=null, $offset=null)
     {
         return $this->httpClient->make('GET','https://apiv1.teleapi.net/user/dids/list/simple',[
-           'number_type'=> $number_type,
-           'limit'=> $limit,
-           'offset'=> $offset
+            'number_type'=> $number_type,
+            'limit'=> $limit,
+            'offset'=> $offset
         ]);
     }
 

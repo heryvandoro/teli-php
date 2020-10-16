@@ -1,6 +1,6 @@
 <?php
 
-namespace Teli\ChannelGroup\Contract;
+namespace Teli\ChannelGroup\Contracts;
 
 interface ChannelGroupBuilderInterface{
     /**

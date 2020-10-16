@@ -2,7 +2,7 @@
 
 namespace Teli\SIP\Builders;
 
-use Teli\SIP\Contract\SIPBuilderInterface;
+use Teli\SIP\Contracts\SIPBuilderInterface;
 use Teli\Shared\HttpClient;
 
 class SIPBuilder implements SIPBuilderInterface{

@@ -1,56 +1,8 @@
 <?php
 
-namespace Teli\Phone\Contract;
+namespace Teli\UserDids\Contracts;
 
-interface PhoneBuilderInterface {
-    /**
-     * List all states available for ordering numbers
-     * @return mixed
-     */
-    public function states();
-
-    /**
-     * List all states available for ordering numbers
-     * @param $state {String} Abbreviated state
-     * @return mixed
-     */
-    public function rateCenters($state);
-
-    /**
-     * List all phone numbers in a specific ratecenter and state
-     * @param $payload {Object} List local number information
-     * @return mixed
-     */
-    public function localNumbers($payload);
-
-    /**
-     * List all available toll free numbers
-     * @return mixed
-     */
-    public function tollFreeNumbers();
-
-    /**
-     * Order a specific number
-     * @param $payload {Object} Order single number information
-     * @return mixed
-     */
-    public function orderSingleNumber($payload);
-
-    /**
-     * Search for vanity toll free numbers
-     * @param $search {String} Search keyword
-     * @return mixed
-     */
-    public function searchVanityTollfreeNumbers($search);
-
-    /**
-     * Order a vanity toll free number
-     * @param $did_number {Number} Number
-     * @param null $vanity_tf {String} Vanity toll free
-     * @return mixed
-     */
-    public function orderVanityTollfreeNumber($did_number, $vanity_tf = null);
-
+interface UserDidsBuilderInterface{
     /**
      * List of the phone numbers that you own
      *      Includes those that are owned by your resellers and customers

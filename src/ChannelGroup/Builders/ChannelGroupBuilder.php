@@ -2,7 +2,7 @@
 
 namespace Teli\ChannelGroup\Builders;
 
-use Teli\ChannelGroup\Contract\ChannelGroupBuilderInterface;
+use Teli\ChannelGroup\Contracts\ChannelGroupBuilderInterface;
 use Teli\Shared\HttpClient;
 
 class ChannelGroupBuilder implements ChannelGroupBuilderInterface{

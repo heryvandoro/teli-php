@@ -81,49 +81,51 @@ function createClient(){
     var_dump($response);
 }
 
-createClient();
-
 function changeClientPassword(){
     global $teli;
 
-    $response= $teli->callApi->changeClientPassword();
+    $response= $teli->callApi->changeClientPassword('2012-04-24','CLc391a9aabb2e4917b493e4700ca82961',[
+        'password'=> 'abctest'
+    ]);
     var_dump($response);
 }
+//changeClientPassword();
 
 function deleteClient(){
     global $teli;
 
-    $response= $teli->callApi->deleteClient();
+    $response= $teli->callApi->deleteClient('2020-09-24','CL1b60baa5ce1e432481cc1f575bd53899');
     var_dump($response);
 }
 
 function listClient(){
     global $teli;
 
-    $response= $teli->callApi->listClient();
+    $response= $teli->callApi->listClient('2012-04-24');
     var_dump($response);
 }
 
 function listRecordings(){
     global $teli;
 
-    $response= $teli->callApi->listRecordings();
+    $response= $teli->callApi->listRecordings('2012-04-24');
     var_dump($response);
 }
 
 function listCallRecordings(){
     global $teli;
 
-    $response= $teli->callApi->listCallRecordings();
+    $response= $teli->callApi->listCallRecordings('2012-04-24','CL1b60baa5ce1e432481cc1f575bd53899');
     var_dump($response);
 }
+//listCallRecordings();
 
 function deleteRecordingRecords(){
     global $teli;
 
-    $response= $teli->callApi->deleteRecordingRecords();
+    $response= $teli->callApi->deleteRecordingRecords('2012-04-24');
     var_dump($response);
 }
-
+//deleteRecordingRecords();
 
 

@@ -8,6 +8,7 @@ function listRecordings(){
     $response = $teli->call->listRecordings();
     var_dump($response);
 }
+//listRecordings();
 
 function getRecording(){
     global $teli;

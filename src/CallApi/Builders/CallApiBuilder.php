@@ -67,7 +67,7 @@ Class CallApiBuilder implements CallApiBuilderInterface{
 
     public function deleteClient($date, $client_id)
     {
-        return $this->httpClient->make('DELETE', 'https://api.teleapi.net/call/' .$date .'/Accounts/' .$this->httpClient->getCallApiSIDToken() .'/Clients.json/' .$client_id);
+        return $this->httpClient->make('DELETE', 'https://api.teleapi.net/call/' .$date .'/Accounts/' .$this->httpClient->getCallApiSIDToken() .'/Clients/' .$client_id);
     }
 
     public function listClient($date)
