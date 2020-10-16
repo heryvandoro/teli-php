@@ -14,26 +14,23 @@ interface CallApiBuilderInterface{
 
     /**
      * List of call data
-     * @param $date {String} Date of record
      * @return mixed
      */
-    public function listCall($date);
+    public function listCall();
 
     /**
      * Representation of a Call resource
-     * @param $date {String} Date of call
      * @param $call_sid {Number}
      * @return mixed
      */
-    public function detail($date, $call_sid);
+    public function detail($call_sid);
 
     /**
      * Making an outbound call
-     * @param $date {String} Date of call
      * @param $payload {Object}
      * @return mixed
      */
-    public function make($date, $payload);
+    public function make($payload);
 
     /**
      * Create call queue
@@ -44,72 +41,69 @@ interface CallApiBuilderInterface{
 
     /**
      * List representation of all the Conference resources for this Account
-     * @param $date {String} Date of record
      */
-    public function listConference($date);
+    public function listConference();
 
     /**
      * Get call reference detail
-     * @param $date {String} Date of record
      * @param $conference_sid {Number} Conference ID
      */
-    public function getConference($date, $conference_sid);
+    public function getConference($conference_sid);
 
 
-    public function listConferenceParticipant($date, $conference_sid, $call_sid);
+    /**
+     * List conference participant
+     * @param $conference_sid {Number} Conference ID
+     * @param $call_sid
+     * @return mixed
+     */
+    public function listConferenceParticipant($conference_sid, $call_sid);
 
     /**
      * * Create call client
-     * @param $date {String} Date of record
      * @param $payload {Object}
      * @return mixed
      */
-    public function createClient($date, $payload);
+    public function createClient($payload);
 
     /**
      * Change call client's password
-     * @param $date {String} Date of record
      * @param $client_id {Number}
      * @param $payload {Object}
      * @return mixed
      */
-    public function changeClientPassword($date, $client_id, $payload);
+    public function changeClientPassword($client_id, $payload);
 
     /**
      * Delete call client
-     * @param $date {String} Date of record
      * @param $client_id {Number}
      * @return mixed
      */
-    public function deleteClient($date, $client_id);
+    public function deleteClient($client_id);
 
     /**
      * List all client
-     * @param $date {String} Date of record
      * @return mixed
      */
-    public function listClient($date);
+    public function listClient();
 
     /**
      * Get list recording record
-     * @param $date {Date} Date of record
      * @return mixed
      */
-    public function listRecordings($date);
+    public function listRecordings();
 
     /**
      * Get call recording record
-     * @param $date {String} Date of record
      * @param $call_sid {Number} Call ID
      * @return mixed
      */
-    public function listCallRecordings($date, $call_sid);
+    public function listCallRecordings($call_sid);
 
     /**
      * Delete call recording record
-     * @param $date {Date} of record
      * @param $recording_sid {Number}
      * @return mixed
      */
-    public function deleteRecordingRecords($date, $recording_sid);
+    public function deleteRecordingRecords($recording_sid);
 }

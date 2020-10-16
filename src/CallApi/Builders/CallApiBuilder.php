@@ -20,19 +20,19 @@ Class CallApiBuilder implements CallApiBuilderInterface{
         ]);
     }
 
-    public function listCall($date)
+    public function listCall()
     {
-        return $this->httpClient->make('GET','https://api.teleapi.net/call/' .$date .'/Accounts/' .$this->httpClient->getCallApiSIDToken() .'/Calls.json');
+        return $this->httpClient->make('GET','https://api.teleapi.net/call/2012-04-24/Accounts/' .$this->httpClient->getCallApiSIDToken() .'/Calls.json');
     }
 
-    public function detail($date, $call_sid)
+    public function detail($call_sid)
     {
-        return $this->httpClient->make('GET','https://api.teleapi.net/call/' .$date .'/Accounts/' .$this->httpClient->getCallApiSIDToken() .'/Calls.json/' .$call_sid );
+        return $this->httpClient->make('GET','https://api.teleapi.net/call/2012-04-24/Accounts/' .$this->httpClient->getCallApiSIDToken() .'/Calls.json/' .$call_sid );
     }
 
-    public function make($date, $payload)
+    public function make($payload)
     {
-        return $this->httpClient->make('POST','https://api.teleapi.net/call/' .$date .'/Accounts/' .$this->httpClient->getCallApiSIDToken() .'/Calls.json', $payload);
+        return $this->httpClient->make('POST','https://api.teleapi.net/call/2012-04-24/Accounts/' .$this->httpClient->getCallApiSIDToken() .'/Calls.json', $payload);
     }
 
     public function createQueue($payload)
@@ -40,53 +40,53 @@ Class CallApiBuilder implements CallApiBuilderInterface{
         return $this->httpClient->make('POST','https://api.teleapi.net/callqueue/provisioning', $payload);
     }
 
-    public function listConference($date)
+    public function listConference()
     {
-        return $this->httpClient->make('GET', 'https://api.teleapi.net/call/'.$date.'/Accounts/'.$this->httpClient->getCallApiSIDToken().'/Conferences.json');
+        return $this->httpClient->make('GET', 'https://api.teleapi.net/call/2012-04-24/Accounts/'.$this->httpClient->getCallApiSIDToken().'/Conferences.json');
     }
 
-    public function getConference($date, $conference_sid)
+    public function getConference($conference_sid)
     {
-        return $this->httpClient->make('GET', 'https://api.teleapi.net/call/'.$date.'/Accounts/'.$this->httpClient->getCallApiSIDToken().'/Conferences/'.$conference_sid.'.json');
+        return $this->httpClient->make('GET', 'https://api.teleapi.net/call/2012-04-24/Accounts/'.$this->httpClient->getCallApiSIDToken().'/Conferences/'.$conference_sid.'.json');
     }
 
-    public function listConferenceParticipant($date, $conference_sid, $call_sid)
+    public function listConferenceParticipant($conference_sid, $call_sid)
     {
-        return $this->httpClient->make('GET','https://api.teleapi.net/call/'.$date.'/Accounts/'.$this->httpClient->getCallApiSIDToken().'/Conferences/'.$conference_sid.'/Participants/'.$call_sid.'.json');
+        return $this->httpClient->make('GET','https://api.teleapi.net/call/2012-04-24/Accounts/'.$this->httpClient->getCallApiSIDToken().'/Conferences/'.$conference_sid.'/Participants/'.$call_sid.'.json');
     }
 
-    public function createClient($date, $payload)
+    public function createClient($payload)
     {
-        return $this->httpClient->make('POST','https://api.teleapi.net/call/' .$date .'/Accounts/' .$this->httpClient->getCallApiSIDToken() .'/Clients.json', $payload);
+        return $this->httpClient->make('POST','https://api.teleapi.net/call/2012-04-24/Accounts/' .$this->httpClient->getCallApiSIDToken() .'/Clients.json', $payload);
     }
 
-    public function changeClientPassword($date, $client_id, $payload)
+    public function changeClientPassword($client_id, $payload)
     {
-        return $this->httpClient->make('PUT','https://api.teleapi.net/call/' .$date .'/Accounts/' .$this->httpClient->getCallApiSIDToken() .'/Clients.json/' .$client_id, $payload);
+        return $this->httpClient->make('PUT','https://api.teleapi.net/call/2012-04-24/Accounts/' .$this->httpClient->getCallApiSIDToken() .'/Clients.json/' .$client_id, $payload);
     }
 
-    public function deleteClient($date, $client_id)
+    public function deleteClient($client_id)
     {
-        return $this->httpClient->make('DELETE', 'https://api.teleapi.net/call/' .$date .'/Accounts/' .$this->httpClient->getCallApiSIDToken() .'/Clients/' .$client_id);
+        return $this->httpClient->make('DELETE', 'https://api.teleapi.net/call/2012-04-24/Accounts/' .$this->httpClient->getCallApiSIDToken() .'/Clients/' .$client_id);
     }
 
-    public function listClient($date)
+    public function listClient()
     {
-        return $this->httpClient->make('GET', 'https://api.teleapi.net/call/' .$date .'/Accounts/' .$this->httpClient->getCallApiSIDToken() .'/Clients.json');
+        return $this->httpClient->make('GET', 'https://api.teleapi.net/call/2012-04-24/Accounts/' .$this->httpClient->getCallApiSIDToken() .'/Clients.json');
     }
 
-    public function listCallRecordings($date, $call_sid)
+    public function listCallRecordings($call_sid)
     {
-        return $this->httpClient->make('GET','https://api.teleapi.net/call/' .$date .'/Accounts/' .$this->httpClient->getCallApiSIDToken() .'/calls/'.$call_sid.'/Recordings.json');
+        return $this->httpClient->make('GET','https://api.teleapi.net/call/2012-04-24/Accounts/' .$this->httpClient->getCallApiSIDToken() .'/calls/'.$call_sid.'/Recordings.json');
     }
 
-    public function listRecordings($date)
+    public function listRecordings()
     {
-        return $this->httpClient->make('GET','https://api.teleapi.net/call/' .$date .'/Accounts/' .$this->httpClient->getCallApiSIDToken() .'/Recordings.json');
+        return $this->httpClient->make('GET','https://api.teleapi.net/call/2012-04-24/Accounts/' .$this->httpClient->getCallApiSIDToken() .'/Recordings.json');
     }
 
-    public function deleteRecordingRecords($date, $recording_sid)
+    public function deleteRecordingRecords($recording_sid)
     {
-        return $this->httpClient->make('DELETE','https://api.teleapi.net/call/' .$date .'/Accounts/' .$this->httpClient->getCallApiSIDToken() .'/Recordings.json/' .$recording_sid);
+        return $this->httpClient->make('DELETE','https://api.teleapi.net/call/2012-04-24/Accounts/' .$this->httpClient->getCallApiSIDToken() .'/Recordings.json/' .$recording_sid);
     }
 }
