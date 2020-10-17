@@ -4,58 +4,66 @@ namespace Teli\Customer\Contracts;
 
 interface CustomerBuilderInterface{
     /**
-     * @param $payload Object
+     * Create customer
+     * @param $payload {Object} Customer information
      * @return mixed
      */
     public function create($payload);
 
     /**
-     * @param $customer_id
+     * Get customer detail information
+     * @param $customer_id {Number} Customer ID
      * @return mixed
      */
     public function get($customer_id);
 
     /**
+     * List customer
      * @return mixed
      */
     public function listCustomer();
 
     /**
-     * @param $customer_id
+     * Enable customer account
+     * @param $customer_id {Number} Customer ID
      * @return mixed
      */
     public function enableAccount($customer_id);
 
     /**
-     * @param $customer_id
+     * Disable customer account
+     * @param $customer_id {Number} Customer ID
      * @return mixed
      */
     public function disableAccount($customer_id);
 
     /**
-     * @param $customer_id
+     * Show customer rates
+     * @param $customer_id {Number} Customer ID
      * @return mixed
      */
     public function showRates($customer_id);
 
     /**
-     * @param $customer_id
-     * @param $amount
+     * Add customer funds
+     * @param $customer_id {Number} Customer ID
+     * @param $amount {Number} Amount
      * @return mixed
      */
     public function addFunds($customer_id, $amount);
 
     /**
-     * @param $id {}
-     * @param $payload
+     * Update customer account
+     * @param $customer_id {Number} Customer ID
+     * @param $payload {Object} Customer information
      * @return mixed
      */
-    public function updateAccount($id, $payload);
+    public function updateAccount($customer_id, $payload);
 
     /**
      * Update customer branding
-     * @param $customer_id
-     * @param $payload
+     * @param $customer_id {Number} Customer ID
+     * @param $payload {Object} Customer information
      * @return mixed
      */
     public function updateBranding($customer_id, $payload);

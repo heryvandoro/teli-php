@@ -6,14 +6,14 @@ interface UserDidsBuilderInterface{
     /**
      * List of the phone numbers that you own
      *      Includes those that are owned by your resellers and customers
-     * @param $number_type {NumberTypeEnum} Number type
+     * @param $number_type {String} Number type
      * @return mixed
      */
     public function listAll($number_type=null);
 
     /**
      * Retrieve a list of the phone numbers that you own in a simplified format
-     * @param $number_type {NumberTypeEnum} Number type
+     * @param $number_type {String} Number type
      * @param $limit {Number}
      * @param $offset {Number}
      * @return mixed
@@ -38,7 +38,7 @@ interface UserDidsBuilderInterface{
     /**
      * Assign a routing call flow to a specified phone number
      * @param $did_id {Number} Can be obtained from the "List Detail on Specific #"
-     * @param null $flow_id {Number} Flow ID
+     * @param $flow_id {Number} Flow ID
      * @return mixed
      */
     public function changeCallFlow($did_id, $flow_id = null);
@@ -46,7 +46,7 @@ interface UserDidsBuilderInterface{
     /**
      * Assign a phone number to a channel group
      * @param $did_id {Number} Can be obtained from the "List Detail on Specific #"
-     * @param null $channel_group_id {Number} Channel group ID
+     * @param $channel_group_id {Number} Channel group ID
      * @return mixed
      */
     public function assignToChannelGroup($did_id, $channel_group_id = null);
@@ -84,7 +84,7 @@ interface UserDidsBuilderInterface{
 
     /**
      * Disable inbound CNAM lookups for a number
-     * @param $payload
+     * @param $payload {Object} Criteria
      * @return mixed
      */
     public function disableCNAM($payload);
@@ -141,14 +141,15 @@ interface UserDidsBuilderInterface{
     public function removeUrlSMS($did_id);
 
     /**
-     * @param $payload
+     * Set phone listing
+     * @param $payload {Object} Phone information
      * @return mixed
      */
     public function setListing($payload);
 
     /**
-     * Set Listing
-     * @param $did_id Retrieve the listing that is stored for a number
+     * Get phone Listing
+     * @param $did_id {Number} Retrieve the listing that is stored for a number
      * @return mixed
      */
     public function getListing($did_id);

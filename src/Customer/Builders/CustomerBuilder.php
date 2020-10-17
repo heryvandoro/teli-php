@@ -58,16 +58,15 @@ class CustomerBuilder implements CustomerBuilderInterface{
         ]);
     }
 
-    public function updateAccount($id, $payload)
+    public function updateAccount($customer_id, $payload)
     {
-        $payload['id'] = $id;
+        $payload['customer_id'] = $customer_id;
         return $this->httpClient->make('GET','https://apiv1.teleapi.net/customers/update', $payload);
     }
 
     public function updateBranding($customer_id, $payload)
     {
         $payload['customer_id']= $customer_id;
-
         return $this->httpClient->make('GET','https://apiv1.teleapi.net/customers/update_branding', $payload);
     }
 

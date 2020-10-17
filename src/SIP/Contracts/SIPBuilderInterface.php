@@ -5,7 +5,7 @@ namespace Teli\SIP\Contracts;
 interface SIPBuilderInterface{
     /**
      * Create a sip account
-     * @param $payload
+     * @param $payload {Object} Sip Account information
      * @return mixed
      */
     public function createAccount($payload);

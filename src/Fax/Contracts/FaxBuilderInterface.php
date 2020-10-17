@@ -42,7 +42,7 @@ interface FaxBuilderInterface {
     /**
      * Add an additional email address to receive inbound faxes for associated fax number
      * @param $did_id {Number} Can be obtained from the "List Detail on Specific #" at the URL
-     * @param $email
+     * @param $email {String} Email address
      * @return mixed
      */
     public function addAnEmailToFax($did_id, $email);

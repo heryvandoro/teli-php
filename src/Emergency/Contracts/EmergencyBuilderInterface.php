@@ -25,7 +25,7 @@ interface EmergencyBuilderInterface{
      * @param $all {Boolean} You can choose to retrieves the entire list or not all
      * @return mixed
      */
-    public function listRecord($all= null);
+    public function listRecord($all = false);
 
     /**
      * Update 911 emergency records

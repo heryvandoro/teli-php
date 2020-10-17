@@ -46,27 +46,27 @@ interface DidsBuilderInterface{
     /**
      * Order a vanity toll free number
      * @param $did_number {Number} Number
-     * @param null $vanity_tf {String} Vanity toll free
+     * @param $vanity_tf {Boolean} Vanity toll free
      * @return mixed
      */
-    public function orderVanityTollfreeNumber($did_number, $vanity_tf = null);
+    public function orderVanityTollfreeNumber($did_number, $vanity_tf = false);
 
     /**
      * List NPA
-     * @param null $available
-     * @param null $type
+     * @param $available {String} Available status
+     * @param $type = {String} Type
      * @return mixed
      */
-    public function getNPA($available= null, $type= null);
+    public function getNPA($available= '', $type= '');
 
     /**
      * List NXX
-     * @param $npa
-     * @param null $available
-     * @param null $type
+     * @param $npa {String} NPA
+     * @param $available {String} Available status
+     * @param $type {String} Type
      * @return mixed
      */
-    public function getNXX($npa, $available= null, $type= null);
+    public function getNXX($npa, $available= '', $type= '');
 
     /**
      * List international rates csv
@@ -82,7 +82,7 @@ interface DidsBuilderInterface{
 
     /**
      * List international states list
-     * @param $country_id
+     * @param $country_id {String} Country ID
      * @return mixed
      */
     public function getIntlStatesList($country_id);

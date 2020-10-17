@@ -109,7 +109,7 @@ interface UserBuilderInterface{
     /**
      * Reset sub user password
      * @param $subuser_id {Number} Sub user ID
-     * @param $new_password {Number} New password
+     * @param $new_password {String} New password
      * @return mixed
      */
     public function resetSubUserPassword($subuser_id, $new_password);

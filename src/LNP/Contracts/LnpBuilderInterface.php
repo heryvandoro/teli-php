@@ -32,6 +32,7 @@ interface LnpBuilderInterface{
 
     /**
      * Check to see if a bulk given number or numbers is portable to our platform
+     * @param $numbers {String} List number that will to be checked
      * @return mixed
      */
     public function bulkCheckNumberPortability($numbers);

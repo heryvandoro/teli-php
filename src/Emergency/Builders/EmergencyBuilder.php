@@ -26,10 +26,10 @@ class EmergencyBuilder implements EmergencyBuilderInterface{
         ]);
     }
 
-    public function listRecord($all=null)
+    public function listRecord($all = false)
     {
         return $this->httpClient->make('GET','https://apiv1.teleapi.net/911/list',[
-            'all'=> $all
+            'all'=> $all ? "yes" : "no"
         ]);
     }
 

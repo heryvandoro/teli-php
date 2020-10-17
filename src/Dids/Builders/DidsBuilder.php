@@ -48,7 +48,7 @@ class DidsBuilder implements DidsBuilderInterface{
         ]);
     }
 
-    public function orderVanityTollfreeNumber($did_number, $vanity_tf = null)
+    public function orderVanityTollfreeNumber($did_number, $vanity_tf = false)
     {
         return $this->httpClient->make('POST', 'https://apiv1.teleapi.net/dids/cart', [
             'did_number' => $did_number,
@@ -56,7 +56,7 @@ class DidsBuilder implements DidsBuilderInterface{
         ]);
     }
 
-    public function getNPA($available = null, $type = null)
+    public function getNPA($available = '', $type = '')
     {
         return $this->httpClient->make('GET','https://apiv1.teleapi.net/dids/npas',[
             'available'=> $available,
@@ -64,7 +64,7 @@ class DidsBuilder implements DidsBuilderInterface{
         ]);
     }
 
-    public function getNXX($npa, $available = null, $type = null)
+    public function getNXX($npa, $available = '', $type = '')
     {
         return $this->httpClient->make('GET','https://apiv1.teleapi.net/dids/nxxs',[
             'npa'=> $npa,
