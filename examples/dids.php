@@ -39,7 +39,6 @@ function orderSingleNumber(){
     ]);
     var_dump($response);
 }
-//orderSingleNumber();
 
 function searchVanityTollfreeNumbers(){
     global $teli;
@@ -47,7 +46,6 @@ function searchVanityTollfreeNumbers(){
     $response= $teli->dids->searchVanityTollfreeNumbers('555*voip');
     var_dump($response);
 }
-//searchVanityTollfreeNumbers();
 
 function orderVanityTollfreeNumber(){
     global $teli;
@@ -55,7 +53,6 @@ function orderVanityTollfreeNumber(){
     $response= $teli->dids->orderVanityTollfreeNumber(3039930000,'yes');
     var_dump($response);
 }
-//orderVanityTollfreeNumber();
 
 function getNPA(){
     global $teli;

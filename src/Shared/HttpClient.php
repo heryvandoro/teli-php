@@ -1,10 +1,11 @@
 <?php
 
 namespace Teli\Shared;
-use GuzzleHttp;
+
+use Curl\Curl;
 
 class HttpClient {
-    private $guzzle;
+    private $curl;
     private $callApiSIDToken;
 
     /**
@@ -28,24 +29,28 @@ class HttpClient {
         $this->callApiSIDToken = $callApiSIDToken;
         $this->apiToken = $apiToken;
 
-        $this->guzzle =  new GuzzleHttp\Client();
+        $this->curl = new Curl();
     }
 
     public function make($method, $url, $data = [], $addtionalConfig = []) {
-        $config = [
-            "query" => [
-                'token' => $this->apiToken
-            ],
-            "auth" => [$this->apiToken, '']
-        ];
+        $this->curl->setBasicAuthentication($this->apiToken, '');
+        $data['token'] = $this->apiToken;
 
-        $config['query'] = array_merge($config['query'], $data);
-        $config['form_params'] = $data;
+        if ($method === "GET") {
+            $response = $this->curl->get($url, $data);
+        } elseif ($method === "POST") {
+            $response = $this->curl->post($url, $data);
+        } elseif ($method === "DELETE") {
+            $response = $this->curl->delete($url, $data);
+        } elseif ($method === "PATCH") {
+            $response = $this->curl->patch($url, $data);
+        } elseif ($method === "PUT") {
+            $response = $this->curl->put($url, $data);
+        } else {
+            throw new \Exception('Undefined method!');
+        }
 
-        $config = array_merge($config, $addtionalConfig);
-        $response = $this->guzzle->request($method, $url, $config);
-
-        $data = GuzzleHttp\json_decode($response->getBody()->getContents(), true);
+        $data = json_decode($response, true);
         return $data;
     }
 }

@@ -33,7 +33,7 @@ function make(){
     ]);
     var_dump($response);
 }
-//make();
+make();
 
 function createQueue(){
     global $teli;
