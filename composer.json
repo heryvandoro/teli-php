@@ -2,6 +2,7 @@
     "name": "teli/teli-php",
     "type": "library",
     "description": "Teli PHP SDK",
+    "license": "MIT",
     "authors": [
         {
             "name": "Hery Vandoro",
